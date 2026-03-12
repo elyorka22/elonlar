@@ -20,7 +20,7 @@ type BottomNavProps = {
 export function BottomNav({ activeKey = "home" }: BottomNavProps) {
   return (
     <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-orange-100 bg-white/95 py-1">
-      <div className="mx-auto flex max-w-md items-center justify-between px-4 text-xs">
+      <div className="mx-auto flex w-full max-w-md items-center justify-between px-3 text-xs sm:max-w-lg sm:px-4 md:max-w-2xl lg:max-w-4xl">
         {items.map((item) => {
           const isActive = item.key === activeKey;
           return (

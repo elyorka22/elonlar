@@ -87,10 +87,10 @@ export default function HomeClient() {
 
   return (
     <div className="flex min-h-screen justify-center bg-[#fff5ec] pb-16">
-      <div className="flex w-full max-w-md flex-col">
+      <div className="flex w-full max-w-md flex-col px-3 sm:max-w-lg sm:px-4 md:max-w-2xl lg:max-w-4xl">
         <Header siteName={siteName} />
 
-        <main className="-mt-3 flex-1 rounded-t-3xl bg-[#fff5ec] px-4 pb-6 pt-4">
+        <main className="-mt-3 flex-1 rounded-t-3xl bg-[#fff5ec] px-2 pb-6 pt-4 sm:px-4">
           <div className="mb-3">
             <input
               type="search"
