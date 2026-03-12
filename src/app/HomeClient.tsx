@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { Header } from "@/components/Header";
-import { BottomNav } from "@/components/BottomNav";
 import { CategoryTabs, CategoryTab } from "@/components/CategoryTabs";
 import { AdCard, Ad } from "@/components/AdCard";
 
@@ -86,13 +85,13 @@ export default function HomeClient() {
   })();
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 pb-16">
+    <div className="flex min-h-screen flex-col bg-slate-50">
       <Header siteName={siteName} />
 
-      <div className="flex flex-1 justify-center">
-        <main className="flex w-full max-w-6xl flex-col gap-6 px-3 pt-4 sm:px-6 lg:px-8 lg:pt-6">
+      <main className="flex flex-1 justify-center">
+        <div className="flex w-full max-w-6xl flex-col gap-6 px-3 py-4 sm:px-6 lg:px-8 lg:py-6">
           {/* Hero */}
-          <section className="grid gap-4 rounded-3xl bg-gradient-to-r from-[#ff7a1a] to-[#ffb067] p-4 text-white shadow-sm sm:p-6 lg:grid-cols-[1.6fr,1.2fr] lg:p-8">
+          <section className="grid gap-6 rounded-3xl bg-gradient-to-r from-[#ff7a1a] to-[#ffb067] p-4 text-white shadow-sm sm:p-6 lg:grid-cols-[1.8fr,1.2fr] lg:p-8">
             <div className="flex flex-col gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-80">
@@ -133,7 +132,7 @@ export default function HomeClient() {
               </div>
             </div>
 
-            <div className="hidden flex-col justify-between rounded-2xl bg-white/10 p-4 text-sm sm:flex lg:p-5">
+            <div className="flex flex-col justify-between rounded-2xl bg-white/10 p-4 text-sm sm:p-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-80">
                   Tanlangan e&apos;lonlar
@@ -206,10 +205,8 @@ export default function HomeClient() {
               ))}
             </div>
           </section>
-        </main>
-      </div>
-
-      <BottomNav activeKey="home" />
+        </div>
+      </main>
     </div>
   );
 }
