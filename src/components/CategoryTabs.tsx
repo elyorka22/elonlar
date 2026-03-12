@@ -18,7 +18,7 @@ export function CategoryTabs({
   onChange,
 }: CategoryTabsProps) {
   return (
-    <div className="mt-4 flex gap-2 rounded-full bg-white p-1 shadow-sm">
+    <div className="mt-4 flex gap-2 overflow-x-auto rounded-full bg-white p-1 shadow-sm">
       {categories.map((category) => {
         const isActive = activeSlug === category.slug;
 
@@ -27,7 +27,7 @@ export function CategoryTabs({
             key={category.id}
             type="button"
             onClick={() => onChange(category.slug)}
-            className={`flex-1 rounded-full px-3 py-1.5 text-xs font-medium ${
+            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium sm:px-4 sm:text-sm ${
               isActive
                 ? "bg-[#ff7a1a] text-white shadow"
                 : "bg-transparent text-slate-700"

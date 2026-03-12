@@ -86,85 +86,95 @@ export default function HomeClient() {
   })();
 
   return (
-    <div className="flex min-h-screen justify-center bg-[#fff5ec] pb-16">
-      <div className="flex w-full max-w-md flex-col px-3 sm:max-w-lg sm:px-4 md:max-w-2xl lg:max-w-4xl">
+    <div className="flex min-h-screen justify-center bg-slate-50 pb-16">
+      <div className="flex w-full max-w-6xl flex-col px-3 sm:px-6 lg:px-8">
         <Header siteName={siteName} />
 
-        <main className="-mt-3 flex-1 rounded-t-3xl bg-[#fff5ec] px-2 pb-6 pt-4 sm:px-4">
-          <div className="mb-3">
-            <input
-              type="search"
-              placeholder="Taom, restoran yoki mahsulot izlash"
-              className="w-full rounded-2xl border border-orange-100 bg-white px-4 py-2 text-xs placeholder:text-slate-400 focus:border-[#ff7a1a] focus:outline-none focus:ring-2 focus:ring-[#ff7a1a]/30"
+        <main className="mt-4 grid flex-1 gap-6 rounded-3xl bg-[#fff5ec] p-3 shadow-sm sm:p-4 lg:grid-cols-[2fr,1.25fr] lg:p-6">
+          {/* Левая колонка: поиск, категории, список объявлений */}
+          <section className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3 rounded-2xl bg-white p-3 shadow-sm sm:flex-row sm:items-center sm:gap-4">
+              <div className="flex-1">
+                <input
+                  type="search"
+                  placeholder="Taom, restoran yoki mahsulot izlash"
+                  className="w-full rounded-2xl border border-orange-100 bg-slate-50 px-4 py-2 text-xs sm:text-sm placeholder:text-slate-400 focus:border-[#ff7a1a] focus:outline-none focus:ring-2 focus:ring-[#ff7a1a]/30"
+                />
+              </div>
+            </div>
+
+            <CategoryTabs
+              categories={categories}
+              activeSlug={selectedCategorySlug}
+              onChange={setSelectedCategorySlug}
             />
-          </div>
 
-          <CategoryTabs
-            categories={categories}
-            activeSlug={selectedCategorySlug}
-            onChange={setSelectedCategorySlug}
-          />
+            <div className="mt-1 flex-1 rounded-2xl bg-white p-3 shadow-sm lg:p-4">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <h2 className="text-sm font-semibold text-slate-900 sm:text-base">
+                  Mashhur e&apos;lonlar
+                </h2>
+              </div>
 
-          <section className="mt-4 grid grid-cols-2 gap-3">
-            <div className="rounded-3xl bg-gradient-to-br from-[#ff7a1a] to-[#ffb067] p-3 text-white">
-              <p className="mb-1 text-xs font-semibold">Chegirma 30%</p>
-              <p className="mb-2 text-[10px] opacity-90">
-                Sevimli restoranlardan issiq yetkazib berish.
-              </p>
-              <button
-                type="button"
-                className="rounded-full bg-white px-3 py-1 text-[10px] font-semibold text-[#ff7a1a]"
-              >
-                Aksiyani ko&apos;rish
-              </button>
-            </div>
+              {isLoading && (
+                <p className="text-xs text-slate-500">Yuklanmoqda...</p>
+              )}
 
-            <div className="rounded-3xl bg-[#ffe9d5] p-3 text-slate-900">
-              <p className="mb-1 text-xs font-semibold">Tezkor kuryer</p>
-              <p className="text-[10px] text-slate-600">
-                Mahsulotlarni yaqin do&apos;konlardan tez yetkazib beramiz.
-              </p>
+              {!isLoading && selectedAds.length === 0 && (
+                <p className="text-xs text-slate-500">
+                  Hozircha bu yerda e&apos;lonlar yo&apos;q.
+                </p>
+              )}
+
+              <div className="mt-2 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {selectedAds.map((ad) => (
+                  <AdCard key={ad.id} ad={ad} />
+                ))}
+              </div>
             </div>
           </section>
 
-          <section className="mt-5">
-            <h2 className="mb-2 text-sm font-semibold text-slate-900">
-              Do&apos;konlardan mahsulotlar
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              <span className="rounded-full bg-[#e5f8e7] px-3 py-1 text-[10px] font-medium text-[#199f3c]">
-                Supermarketlar
-              </span>
-              <span className="rounded-full bg-[#ffe9d5] px-3 py-1 text-[10px] font-medium text-[#ff7a1a]">
-                Gazak va ichimliklar
-              </span>
-              <span className="rounded-full bg-[#e3edff] px-3 py-1 text-[10px] font-medium text-[#3760ff]">
-                Maishiy tovarlar
-              </span>
+          {/* Правая колонка: промо и быстрые категории */}
+          <aside className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="rounded-3xl bg-gradient-to-br from-[#ff7a1a] to-[#ffb067] p-4 text-white shadow-sm">
+                <p className="mb-1 text-sm font-semibold">Chegirma 30%</p>
+                <p className="mb-3 text-xs opacity-90 lg:text-sm">
+                  Sevimli restoranlardan issiq yetkazib berish.
+                </p>
+                <button
+                  type="button"
+                  className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-[#ff7a1a]"
+                >
+                  Aksiyani ko&apos;rish
+                </button>
+              </div>
+
+              <div className="rounded-3xl bg-[#ffe9d5] p-4 text-slate-900 shadow-sm">
+                <p className="mb-1 text-sm font-semibold">Tezkor kuryer</p>
+                <p className="text-xs text-slate-700 lg:text-sm">
+                  Mahsulotlarni yaqin do&apos;konlardan tez yetkazib beramiz.
+                </p>
+              </div>
             </div>
-          </section>
 
-          <section className="mt-6">
-            <h2 className="mb-2 text-sm font-semibold text-slate-900">
-              Mashhur e&apos;lonlar
-            </h2>
-
-            {isLoading && (
-              <p className="text-xs text-slate-500">Yuklanmoqda...</p>
-            )}
-
-            {!isLoading && selectedAds.length === 0 && (
-              <p className="text-xs text-slate-500">
-                Hozircha bu yerda e&apos;lonlar yo&apos;q.
-              </p>
-            )}
-
-            <div className="mt-2 flex flex-col gap-3">
-              {selectedAds.map((ad) => (
-                <AdCard key={ad.id} ad={ad} />
-              ))}
+            <div className="rounded-3xl bg-white p-3 shadow-sm lg:p-4">
+              <h2 className="mb-2 text-sm font-semibold text-slate-900 sm:text-base">
+                Do&apos;konlardan mahsulotlar
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full bg-[#e5f8e7] px-3 py-1 text-xs font-medium text-[#199f3c] sm:text-sm">
+                  Supermarketlar
+                </span>
+                <span className="rounded-full bg-[#ffe9d5] px-3 py-1 text-xs font-medium text-[#ff7a1a] sm:text-sm">
+                  Gazak va ichimliklar
+                </span>
+                <span className="rounded-full bg-[#e3edff] px-3 py-1 text-xs font-medium text-[#3760ff] sm:text-sm">
+                  Maishiy tovarlar
+                </span>
+              </div>
             </div>
-          </section>
+          </aside>
         </main>
 
         <BottomNav activeKey="home" />
