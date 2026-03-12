@@ -96,11 +96,10 @@ export default function HomeClient() {
             <div className="flex flex-col gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-80">
-                  Mahalliy yetkazib berish
+                  Onlayn doska e&apos;lonlar
                 </p>
                 <h1 className="mt-1 text-xl font-semibold leading-tight sm:text-2xl lg:text-3xl">
-                  Toping va buyurtma qiling sevimli taom va mahsulotlarni bir
-                  joyda.
+                  Toping, soting va ijaraga bering narsalarni bir joyda.
                 </h1>
               </div>
 
@@ -108,7 +107,7 @@ export default function HomeClient() {
                 <div className="flex-1">
                   <input
                     type="search"
-                    placeholder="Taom, restoran yoki mahsulot izlash"
+                    placeholder="E&apos;lonlarni qidirish"
                     className="w-full rounded-2xl border border-white/30 bg-white/90 px-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/60 sm:text-sm"
                   />
                 </div>
@@ -123,13 +122,13 @@ export default function HomeClient() {
               <div className="flex flex-wrap gap-3 text-[11px] sm:text-xs">
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 font-medium">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-300" />
-                  30 daqiqada yetkazib berish
+                  Yangi e&apos;lonlar har kuni
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 font-medium">
-                  0 so&apos;m minimal buyurtma
+                  Bepul e&apos;lon joylashtirish
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 font-medium">
-                  Do&apos;konlar va restoranlar bir joyda
+                  Ishlar, ko&apos;chmas mulk va texnika
                 </span>
               </div>
             </div>
@@ -137,15 +136,16 @@ export default function HomeClient() {
             <div className="hidden flex-col justify-between rounded-2xl bg-white/10 p-4 text-sm sm:flex lg:p-5">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-80">
-                  Aksiya
+                  Tanlangan e&apos;lonlar
                 </p>
                 <p className="mt-1 text-lg font-semibold">
-                  Chegirma 30% har kuni sevimli restoranlarda.
+                  Haftaning eng ko&apos;p ko&apos;rilgan e&apos;lonlari.
                 </p>
               </div>
               <p className="mt-3 text-xs opacity-90">
-                Tanlangan restoranlardan issiq taomlarni tez va qulay yetkazib
-                beramiz. Birinchi buyurtmangiz uchun qo&apos;shimcha bonuslar.
+                Ish topish, uy ijaraga olish yoki eski texnikangizni sotish —
+                bularning barchasini bir joyda boshqaring va xavfsiz kelishuvlar
+                qiling.
               </p>
             </div>
           </section>
@@ -160,13 +160,16 @@ export default function HomeClient() {
 
             <div className="flex flex-wrap gap-2">
               <span className="rounded-full bg-[#e5f8e7] px-3 py-1 text-xs font-medium text-[#199f3c] sm:text-sm">
-                Tez yetkazib berish
+                Yangi e&apos;lonlar
               </span>
               <span className="rounded-full bg-[#ffe9d5] px-3 py-1 text-xs font-medium text-[#ff7a1a] sm:text-sm">
-                Chegirmadagi taomlar
+                Ish o&apos;rinlari
               </span>
               <span className="rounded-full bg-[#e3edff] px-3 py-1 text-xs font-medium text-[#3760ff] sm:text-sm">
-                24/7 ochiq
+                Ko&apos;chmas mulk
+              </span>
+              <span className="rounded-full bg-[#f3e8ff] px-3 py-1 text-xs font-medium text-[#7c3aed] sm:text-sm">
+                Texnika va gadjetlar
               </span>
             </div>
           </section>

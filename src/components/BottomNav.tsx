@@ -7,9 +7,9 @@ type NavItem = {
 
 const items: NavItem[] = [
   { key: "home", label: "Bosh sahifa" },
-  { key: "restaurants", label: "Restoranlar" },
-  { key: "products", label: "Mahsulotlar" },
-  { key: "cart", label: "Savat" },
+  { key: "listings", label: "E&apos;lonlar" },
+  { key: "categories", label: "Kategoriyalar" },
+  { key: "saved", label: "Saqlangan" },
   { key: "profile", label: "Profil" },
 ];
 

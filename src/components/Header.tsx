@@ -10,11 +10,11 @@ export function Header({ siteName }: HeaderProps) {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-3 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-[#ff7a1a] to-[#ffb067] text-white shadow-sm">
-            <span className="text-xs font-bold">M</span>
+            <span className="text-xs font-bold">E</span>
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-semibold uppercase tracking-wide text-[#ff7a1a]">
-              Minutka
+              Elonlar.uz
             </span>
             <span className="text-sm font-semibold text-slate-900 sm:text-base">
               {siteName}
