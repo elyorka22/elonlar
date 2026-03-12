@@ -150,8 +150,11 @@ export default function HomeClient() {
             </div>
           </section>
 
-          {/* Категории и фильтры */}
+          {/* Категории */}
           <section className="space-y-3">
+            <h2 className="text-sm font-semibold text-slate-900 sm:text-base">
+              Kategoriyalar
+            </h2>
             <CategoryTabs
               categories={categories}
               activeSlug={selectedCategorySlug}
